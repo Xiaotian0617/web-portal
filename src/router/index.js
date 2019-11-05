@@ -8,6 +8,9 @@ export default new Router({
     {
       path: '/',
       name: '首页',
+      meta: {
+        title: '北京百年精准管理咨询有限公司'
+      },
       component: () => import('@/view/home/index.vue')
     }
   ]

@@ -11,6 +11,16 @@ Vue.config.productionTip = false;
 
 Vue.use(ViewUI);
 
+router.beforeEach((to, from, next) => {
+  /* 路由发生变化修改页面title */
+  if (to.meta.title) {
+    document.title = to.meta.title;
+  } else {
+    document.title = '北京百年精准管理咨询有限公司';
+  }
+  next();
+});
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

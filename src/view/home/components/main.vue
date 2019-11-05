@@ -13,21 +13,21 @@
         <CarouselItem>
             <div>
               <a href="javascript:void(0);">
-                <img width="100%" :src="indexSlide1" alt="carouse1">
+                <img width="100%" class="carouse-img" :src="indexSlide1" alt="carouse1">
               </a>
             </div>
         </CarouselItem>
         <CarouselItem>
             <div>
               <a href="javascript:void(0);">
-                <img width="100%" :src="indexSlide2" alt="carouse2">
+                <img width="100%"  class="carouse-img" :src="indexSlide2" alt="carouse2">
               </a>
             </div>
         </CarouselItem>
         <CarouselItem>
             <div>
               <a href="javascript:void(0);">
-                <img width="100%" :src="indexSlide3" alt="carouse3">
+                <img width="100%"  class="carouse-img" :src="indexSlide3" alt="carouse3">
               </a>
             </div>
         </CarouselItem>
@@ -115,16 +115,16 @@ export default {
         trigger: 'hover',
         arrow: 'hover'
       },
-      indexSlide1: require('@/assets/img/home/index_slide_1.png'),
-      indexSlide2: require('@/assets/img/home/index_slide_2.png'),
-      indexSlide3: require('@/assets/img/home/index_slide_3.png'),
+      indexSlide1: require('@/assets/img/home/head1.jpg'),
+      indexSlide2: require('@/assets/img/home/head2.jpg'),
+      indexSlide3: require('@/assets/img/home/head3.jpg'),
       slide1: require('@/assets/img/home/slide_01.png'),
       slide2: require('@/assets/img/home/slide_02.png'),
       slide3: require('@/assets/img/home/slide_03.png'),
-      bnr1: require('@/assets/img/home/bnr1.png'),
-      bnr2: require('@/assets/img/home/bnr2.png'),
-      bnr3: require('@/assets/img/home/bnr3.png'),
-      bnr4: require('@/assets/img/home/bnr4.png'),
+      bnr1: require('@/assets/img/home/bottom1.jpg'),
+      bnr2: require('@/assets/img/home/bottom2.jpg'),
+      bnr3: require('@/assets/img/home/bottom3.jpg'),
+      bnr4: require('@/assets/img/home/bottom4.jpg'),
       sdutyList: [{
         href: 'http://changchun.theme.yurl.vip/posts/x000037',
         title: '为什么邀请李克强到加拿大开会？',
@@ -152,7 +152,10 @@ export default {
 </script>
 <style lang="less" scoped>
   .slide{
-    min-height: 480px;
+    height: 480px;
+  }
+  .carouse-img{
+    height: 480px;
   }
 </style>
 <style>

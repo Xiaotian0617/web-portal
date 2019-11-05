@@ -17,6 +17,6 @@ export default {
 </script>
 
 <style>
-   @import url('../../assets/css/main.css');
-   @import url('../../assets/css/reset.css');
+   @import url('../../../assets/css/main.css');
+   @import url('../../../assets/css/reset.css');
 </style>

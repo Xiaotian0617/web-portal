@@ -2,28 +2,28 @@
   <div>
     <div id="header">
       <div class="head_wrapper">
-        <a href="http://changchun.theme.yurl.vip/" class="logo">
+        <a href="/" class="logo">
           <img src="./../assets/img/home/logo.png" alt="长春" class="logo" />
         </a>
         <ul class="header_ul">
           <li class="nv_list">
-            <a href="http://changchun.theme.yurl.vip/" class="nav_item">首页</a>
+            <a href="/" class="nav_item">首页</a>
           </li>
 
           <li class="nv_list">
-            <a href="http://changchun.theme.yurl.vip/posts" class="nav_item">英语学习</a>
+            <a href="/study" class="nav_item">英语学习</a>
           </li>
 
           <li class="nv_list">
-            <a href="http://changchun.theme.yurl.vip/posts/x000027" class="nav_item">新闻动态</a>
+            <a href="/news" class="nav_item">新闻动态</a>
           </li>
 
           <li class="nv_list">
-            <a href="http://changchun.theme.yurl.vip/posts/x000037" class="nav_item">相关活动</a>
+            <a href="/other" class="nav_item">相关活动</a>
           </li>
 
           <li class="nv_list">
-            <a href="http://changchun.theme.yurl.vip/posts" class="nav_item">关于我们</a>
+            <a href="/about" class="nav_item">关于我们</a>
           </li>
         </ul>
         <div class="head-btn settings-mobile_btn_color">
@@ -43,35 +43,35 @@
             <li class="side-nav-link-each">
               <a
                 class="settings-nav_text_color settings-sideLinkHover_color"
-                href="http://changchun.theme.yurl.vip/"
+                href="/"
               >首页</a>
             </li>
 
             <li class="side-nav-link-each">
               <a
                 class="settings-nav_text_color settings-sideLinkHover_color"
-                href="http://changchun.theme.yurl.vip/posts"
+                href="/study"
               >英语学习</a>
             </li>
 
             <li class="side-nav-link-each">
               <a
                 class="settings-nav_text_color settings-sideLinkHover_color"
-                href="http://changchun.theme.yurl.vip/posts/x000027"
+                href="/news"
               >新闻动态</a>
             </li>
 
             <li class="side-nav-link-each">
               <a
                 class="settings-nav_text_color settings-sideLinkHover_color"
-                href="http://changchun.theme.yurl.vip/posts/x000037"
+                href="/other"
               >相关活动</a>
             </li>
 
             <li class="side-nav-link-each">
               <a
                 class="settings-nav_text_color settings-sideLinkHover_color"
-                href="http://changchun.theme.yurl.vip/posts"
+                href="/about"
               >关于我们</a>
             </li>
 
@@ -84,3 +84,8 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  name: 'MyHeader'
+};
+</script>

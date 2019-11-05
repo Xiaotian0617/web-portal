@@ -1,7 +1,6 @@
 .settings-main_header_color {color: #333;}
 .settings-main_text_color {color: #4b4b4b;}
 .settings-main_desc_color {color: #999;}
-.settings-main_color { background-color: ;}
 .settings-main_background{ background-color: #fff;}
 .settings-main_background_color{ background-color: #f1f3f6;}
 .settings-main_content_background_color { background-color: #fff;}
@@ -179,10 +178,6 @@ ul {
     display: inline-block;
     font-size: 14px;
     margin-right: 37px;
-}
-
-.dropdown-list-item:hover {
-    background-color: ;
 }
 
 .dropdown-list-item:hover .dropdown-link {
@@ -1498,7 +1493,6 @@ p {
 }
 a{
     text-decoration: none;
-    /* // color: #333; */
 }
 .index-headline-pic img {
     display: block;
@@ -2114,6 +2108,7 @@ a{
     margin:  0 auto;
     width: 990px;
     margin-top: 50px;
+    margin-bottom: 90px;
 }
 .main .content .article{
     width: 480px;
@@ -2156,11 +2151,14 @@ a{
 }
 .outer_content {
     border-right: 1px solid #eee;
+    height: 553px;
+    margin-top: 20px;
 }
     
 .outer_content ul {
     line-height: 25px;
     display: none;
+    height: 553px;
     overflow: auto;
 }
 .outer_content .article_list{

@@ -16,7 +16,13 @@ export default {
 };
 </script>
 
+<style scoped>
+.prolist-spfilter-pagenation{
+  margin-top: 30px;
+}
+</style>
+
 <style>
-   @import url('../../assets/css/main.css');
-   @import url('../../assets/css/reset.css');
+   @import url('../../../assets/css/main.css');
+   @import url('../../../assets/css/reset.css');
 </style>

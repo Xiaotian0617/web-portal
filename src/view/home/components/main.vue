@@ -97,6 +97,7 @@
 <script>
 import ArticleList from './article-list';
 export default {
+  name: 'MyMain',
   components: {
     ArticleList
   },

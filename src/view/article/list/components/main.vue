@@ -83,7 +83,7 @@ export default {
         classify: '本月活动',
         title: '成人英语培训——如何用英语来称呼另一半',
         cTime: '2017-03-01 10:57',
-        href: '#'
+        href: '/news'
       }, {
         classify: '本月活动',
         title: '成人英语培训——如何用英语来称呼另一半',

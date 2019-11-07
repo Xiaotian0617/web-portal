@@ -6,24 +6,11 @@
           <img src="./../assets/img/home/logo.png" alt="长春" class="logo" />
         </a>
         <ul class="header_ul">
-          <li class="nv_list">
-            <a href="/" class="nav_item">首页</a>
+          <li class="nv_list" v-for="(item, index) in memuList" :key="index">
+            <a href="/study" class="nav_item">{{item.nmName}}</a>
           </li>
-
           <li class="nv_list">
-            <a href="/study" class="nav_item">英语学习</a>
-          </li>
-
-          <li class="nv_list">
-            <a href="/news" class="nav_item">新闻动态</a>
-          </li>
-
-          <li class="nv_list">
-            <a href="/other" class="nav_item">相关活动</a>
-          </li>
-
-          <li class="nv_list">
-            <a href="/about" class="nav_item">关于我们</a>
+            <a @click="showModel = true" class="nav_item">登录/注册</a>
           </li>
         </ul>
         <div class="head-btn settings-mobile_btn_color">
@@ -40,52 +27,59 @@
           </div>
           <!-- 一级菜单 -->
           <ul id="side-nav-link" class="side-nav-link">
-            <li class="side-nav-link-each">
+            <li class="side-nav-link-each" v-for="(item, index) in memuList" :key="index">
               <a
                 class="settings-nav_text_color settings-sideLinkHover_color"
                 href="/"
-              >首页</a>
+              >{{item.nmName}}</a>
             </li>
-
-            <li class="side-nav-link-each">
-              <a
-                class="settings-nav_text_color settings-sideLinkHover_color"
-                href="/study"
-              >英语学习</a>
-            </li>
-
-            <li class="side-nav-link-each">
-              <a
-                class="settings-nav_text_color settings-sideLinkHover_color"
-                href="/news"
-              >新闻动态</a>
-            </li>
-
-            <li class="side-nav-link-each">
-              <a
-                class="settings-nav_text_color settings-sideLinkHover_color"
-                href="/other"
-              >相关活动</a>
-            </li>
-
-            <li class="side-nav-link-each">
-              <a
-                class="settings-nav_text_color settings-sideLinkHover_color"
-                href="/about"
-              >关于我们</a>
-            </li>
-
-            <!---->
           </ul>
         </div>
         <div class="mobile_nav_bg" id="mobile_bg"></div>
         <!-- -->
       </div>
     </div>
+    <Modal
+        v-model="showModel"
+        :title="isLogin?'登录':'注册'"
+        @on-ok="doLogin"
+        @on-cancel="showModel = false"
+        >
+        <my-form ref="myForm" :isLogin="isLogin" @changeStatus="changeStatus"/>
+    </Modal>
   </div>
 </template>
 <script>
+import MyForm from './register';
 export default {
-  name: 'MyHeader'
+  props: {
+    // 菜单列表
+    memuList: {
+      type: Array
+    }
+  },
+  components: {
+    MyForm
+  },
+  name: 'MyHeader',
+  data () {
+    return {
+      // 弹窗显示
+      showModel: false,
+      // 是否是登录
+      isLogin: true
+    };
+  },
+  methods: {
+    // 进行登录操作
+    doLogin () {
+      let formData = this.$refs.myForm.getData();
+      console.info(formData);
+    },
+    // 更新当前状态
+    changeStatus (status) {
+      this.isLogin = status;
+    }
+  }
 };
 </script>

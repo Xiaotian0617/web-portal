@@ -6,6 +6,12 @@
 .settings-main_content_background_color { background-color: #fff;}
 .settings-main_border { border-color: #9b9b9b; }
 .settings-link_color {color: #ed6639;}
+a:active {
+  color: #ed6639 !important;
+}
+a:hover {
+  color: #ed6639 !important;
+}
 .settings-mobile_btn_color {color:#fff;}
 .settings-header_background {background:#f6f6f6}
 .settings-top_background {background-color: #fff;}

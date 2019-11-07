@@ -5,10 +5,10 @@ import App from './App';
 import router from './router';
 // 引入 iview
 import ViewUI from 'view-design';
-import 'view-design/dist/styles/iview.css';
+
+import './assets/css/my-theme.less';
 
 Vue.config.productionTip = false;
-
 Vue.use(ViewUI);
 
 router.beforeEach((to, from, next) => {

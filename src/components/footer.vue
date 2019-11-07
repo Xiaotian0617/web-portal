@@ -1,5 +1,5 @@
 <template>
-  <div class="clear pt30">
+  <div class="clear">
     <div id="tracecode"></div>
     <div class="footer settings-footer_background">
       <div class="footer-t settings-main_border">

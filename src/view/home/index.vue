@@ -1,6 +1,6 @@
 <template>
   <div>
-    <my-header />
+    <my-header :memuList="memuList"/>
     <my-main />
     <my-footer />
   </div>
@@ -9,9 +9,25 @@
 import MyHeader from '@/components/header';
 import MyFooter from '@/components/footer';
 import MyMain from './components/main';
+import homeApi from '../../api/home';
 export default {
   components: {
     MyHeader, MyFooter, MyMain
+  },
+  data () {
+    return {
+      memuList: [],
+      showLoginModal: false
+    };
+  },
+  mounted () {
+    this.getMemuList();
+  },
+  methods: {
+    async getMemuList () {
+      let res = await homeApi.getMemu();
+      this.memuList = res.data;
+    }
   }
 };
 </script>

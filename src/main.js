@@ -5,8 +5,11 @@ import App from './App';
 import router from './router';
 // 引入 iview
 import ViewUI from 'view-design';
-
+// 配置cookie
+import cookie from 'vue-cookie';
+// 全局修改iview的默认颜色
 import './assets/css/my-theme.less';
+Vue.prototype.$cookie = cookie;
 
 Vue.config.productionTip = false;
 Vue.use(ViewUI);

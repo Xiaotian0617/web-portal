@@ -6,17 +6,19 @@
           <div>最新文章</div>
           <div class="post-re-list settings-main_border" id="post-re-list">
             <a
-              :href="item.href"
+              :href="'/detail/'+item.id"
               class="post-re-each settings-main_border settings-text_color"
-              v-for="(item, index) in newArticles" :key="index"
+              v-for="(item, index) in newArticles"
+              :key="index"
             >
-              <span class="post-re-each-dot"></span>{{item.title}}
+              <span class="post-re-each-dot"></span>
+              {{item.title}}
             </a>
           </div>
         </div>
         <div class="sidebar-wx">
           <div class="sidebar-wx-title">订阅微信公众号</div>
-          <img src="../../../../assets/img/home/index_footer_qr_1.png" alt />
+          <img src="../../../../assets/img/home/gongzhonghao.jpg" alt />
         </div>
       </div>
 
@@ -24,28 +26,16 @@
         <div class="post-wrapper">
           <div class="post-catalog">
             <a class="settings-main_desc_color" href="/">首页 &gt;</a>
-            <a
-              class="settings-main_desc_color"
-              href="/study"
-            >所有文章 &gt;</a>
+            <a class="settings-main_desc_color" href="/study">所有文章 &gt;</a>
 
-            <a
-              class="settings-main_desc_color post-dir-link"
-              href="/news"
-            >本月活动</a>
-
-            <a
-              class="settings-main_desc_color post-dir-link"
-              href="/about"
-            >相关报道</a>
-
+            <a class="settings-main_desc_color post-dir-link" href="/news">{{article.title}}</a>
           </div>
           <div class="post-cont settings-main_content_background_color single-post-cont">
             <div class="post">
               <h2 class="post-title settings-main_header_color">{{article.title}}</h2>
               <div class="post-info settings-main_desc_color">
-                <span class="post-info-publish_at">{{article.cTime}}</span>
-                <span class="post-info-dirs">&nbsp;&nbsp;|&nbsp;&nbsp;标签：{{article.tag}}</span>
+                <span class="post-info-publish_at">{{article.createDate}}</span>
+                <span class="post-info-dirs">&nbsp;&nbsp;|&nbsp;&nbsp;作者：{{article.author}}</span>
               </div>
               <div class="post-content">
                 <div v-html="article.content">{{article.content}}</div>
@@ -60,106 +50,48 @@
 </template>
 
 <script>
+import HomeApi from "@/api/home.js";
 export default {
-  name: 'MyMain',
-  data () {
+  name: "MyMain",
+  data() {
     return {
-      newArticles: [{
-        href: '#',
-        title: '为什么邀请互联网大拿讲课?'
-      }, {
-        href: '#',
-        title: '为什么邀请互联网大拿讲课?'
-      }, {
-        href: '#',
-        title: '为什么邀请互联网大拿讲课?'
-      }, {
-        href: '#',
-        title: '为什么邀请互联网大拿讲课?'
-      }, {
-        href: '#',
-        title: '为什么邀请互联网大拿讲课?'
-      }, {
-        href: '#',
-        title: '为什么邀请互联网大拿讲课?'
-      }],
-      article: {
-        title: '成人英语培训——如何用英语来称呼另一半',
-        cTime: '2017-03-01 10:57',
-        tag: '英语',
-        content: '<p>\n' +
-                '                  <span\n' +
-                '                    style="font-family: &#39;Microsoft Yahei&#39;; font-size: 14px; line-height: 1.75;"\n' +
-                '                  >海外课堂第五季，让我们来看看前几季，我们的探索者是如何探索他们心中的美国的：</span>\n' +
-                '                </p>\n' +
-                '                <p>\n' +
-                '                  <span\n' +
-                '                    style="font-family: &#39;Microsoft Yahei&#39;; font-size: 14px; line-height: 1.75;"\n' +
-                '                  >在前几季中，我们的同学们充分探索了美国，并体会到了跟别人完全不一样的文化，看看前几次的回忆：</span>\n' +
-                '                </p>\n' +
-                '                <p>\n' +
-                '                  <span\n' +
-                '                    style="font-family: &#39;Microsoft Yahei&#39;; font-size: 14px; line-height: 1.75;"\n' +
-                '                  >\n' +
-                '                    最美的游学，风景如何：\n' +
-                '                    <a href="http://dwz.cn/124bEX">http://dwz.cn/124bEX</a>\n' +
-                '                  </span>\n' +
-                '                </p>\n' +
-                '                <p>\n' +
-                '                  <span\n' +
-                '                    style="font-family: &#39;Microsoft Yahei&#39;; font-size: 14px; line-height: 1.75;"\n' +
-                '                  >\n' +
-                '                    最帅的外教，还能学的进去：\n' +
-                '                    <a href="http://dwz.cn/124ckv">http://dwz.cn/124ckv</a>\n' +
-                '                  </span>\n' +
-                '                </p>\n' +
-                '                <p>\n' +
-                '                  <span\n' +
-                '                    style="font-family: &#39;Microsoft Yahei&#39;; font-size: 14px; line-height: 1.75;"\n' +
-                '                  >这次，我们要再次造访Telluride，让生活中的美国小镇变成我们的课堂，我们更要深入地球地质地貌的奇迹，让人魂牵梦绕的---黄石公园。</span>\n' +
-                '                </p>\n' +
-                '                <p>\n' +
-                '                  <span\n' +
-                '                    style="font-family: &#39;Microsoft Yahei&#39;; font-size: 14px; line-height: 1.75;"\n' +
-                '                  >可能你在电影《2012》中见识过她的壮美，可能你在各种纪录片中欣赏过她的灵动，但是你绝对想象不到，深入她，融入她，成为她的一部分，是人生中多么美妙的体验。</span>\n' +
-                '                </p>\n' +
-                '                <p>\n' +
-                '                  <span\n' +
-                '                    style="font-family: &#39;Microsoft Yahei&#39;; font-size: 14px; line-height: 1.75;"\n' +
-                '                  >世界上最大的火山口之一；</span>\n' +
-                '                </p>\n' +
-                '                <p>\n' +
-                '                  <span\n' +
-                '                    style="font-family: &#39;Microsoft Yahei&#39;; font-size: 14px; line-height: 1.75;"\n' +
-                '                  >世界上面积最大的森林之一；</span>\n' +
-                '                </p>\n' +
-                '                <p>\n' +
-                '                  <span\n' +
-                '                    style="font-family: &#39;Microsoft Yahei&#39;; font-size: 14px; line-height: 1.75;"\n' +
-                '                  >全美国森林总面积的90%；</span>\n' +
-                '                </p>\n' +
-                '                <p>\n' +
-                '                  <span\n' +
-                '                    style="font-family: &#39;Microsoft Yahei&#39;; font-size: 14px; line-height: 1.75;"\n' +
-                '                  >超过10,000温泉和300多个间歇泉；</span>\n' +
-                '                </p>\n' +
-                '                <p>\n' +
-                '                  <span\n' +
-                '                    style="font-family: &#39;Microsoft Yahei&#39;; font-size: 14px; line-height: 1.75;"\n' +
-                '                  >拥有290多个壮美瀑布；</span>\n' +
-                '                </p>\n' +
-                '                <p>\n' +
-                '                  <span\n' +
-                '                    style="font-family: &#39;Microsoft Yahei&#39;; font-size: 14px; line-height: 1.75;"\n' +
-                '                  >无数野生动物擦身而过；</span>\n' +
-                '                </p>\n' +
-                '                <p>\n' +
-                '                  <span\n' +
-                '                    style="font-family: &#39;Microsoft Yahei&#39;; font-size: 14px; line-height: 1.75;"\n' +
-                '                  >更多内容：http://dwz.cn/124mOK</span>\n' +
-                '                </p>'
-      }
+      newArticles: [],
+      article: {}
     };
+  },
+  mounted() {
+    let id = this.$route.params.id;
+    let type = this.$route.params.type;
+    // 页面加载时根据文章id获取文章详情
+    this.getArticleDetail(id, type);
+  },
+  methods: {
+    // 获取文章详情
+    // 从头部来时，id表示菜单id
+    // 从文章进来时 id表示文章id
+    async getArticleDetail(id, type) {
+      let param = {};
+      if (type == 0) {
+        let res = await HomeApi.getArticleList({ navMenuId: id });
+        let articleList = res.data;
+        if (articleList.length == 0) {
+          this.$Message["success"]({
+            background: true,
+            content: "没有更多文章啦~"
+          });
+        }
+        param.id = articleList[0].id;
+      } else {
+        param.id = id;
+      }
+      let result = await HomeApi.getArticleById(param);
+      this.article.id = result.data.id;
+      this.article.title = result.data.title;
+      this.article.content = result.data.content;
+      this.article.author = result.data.author;
+      this.article.createDate = result.data.createDate;
+      this.newArticles = result.data.latestList;
+    }
   }
 };
 </script>

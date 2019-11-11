@@ -152,6 +152,7 @@ export default {
   position: relative;
   float: right;
   line-height: 80px;
-  font-size: 20px;
+  font-size: 25px;
+  letter-spacing: 3px;
 }
 </style>

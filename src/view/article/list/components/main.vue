@@ -27,7 +27,7 @@
           <div class="post-wrapper">
             <div class="post-cont settings-main_content_background_color">
               <div class="pageTitle txt-overflow">
-                <h2>{{articleClassify[articleIndex].nmName?articleClassify[articleIndex].nmName:''}}</h2>
+                <h2>{{rightLable}}</h2>
               </div>
               <div class="post">
                 <div class="post-list lazyload_scope">
@@ -66,9 +66,10 @@ export default {
       // 文章分类
       articleClassify: [],
       // 当前选择分类
-      articleIndex: 0,
+      articleIndex: -1,
       // 当前选择菜单
-      memuName: ""
+      memuName: "",
+      rightLable: "全部文章"
     };
   },
   mounted() {
@@ -104,11 +105,12 @@ export default {
         this.articleClassify = classify[index].children;
         param.navMenuId = this.articleClassify[0].parentId;
       } else {
+        this.articleIndex = clickIndex;
+        this.rightLable = this.articleClassify[clickIndex].nmName;
         param.navMenuId = index;
       }
       let res = await HomeApi.getArticleList(param);
       this.articleList = res.data;
-      this.articleIndex = clickIndex;
       if (this.articleList.length == 0) {
         this.$Message["success"]({
           background: true,

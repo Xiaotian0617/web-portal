@@ -41,7 +41,7 @@
               </dl>
             </li>
 
-            <li style="width:350px">
+            <li style="width:280px">
               <dl style="float:left">
                 <dt>
                   <a href="#" class="settings-footer_text_color">百年培训课程</a>

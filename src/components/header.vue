@@ -2,10 +2,12 @@
   <div>
     <div id="header">
       <div class="head_wrapper">
-        <a href="/" class="logo">
-          <img src="./../assets/img/home/logo.png" alt="百年精准" class="logo" /> 
-        </a>
-        <div class="logo-font">百年精准</div>
+        <div class="pa">
+           <a href="/" class="logo">
+            <img src="./../assets/img/home/logo.png" alt="百年精准" class="logo" /> 
+           </a>
+           <div class="logo-font">百年精准</div>
+        </div>
         <ul class="header_ul">
           <li class="nv_list" v-for="(item, index) in memuList" :key="index">
             <a :href="getHeaderHref(item,index)" class="nav_item">{{item.nmName}}</a>
@@ -147,6 +149,9 @@ export default {
   width: 80px;
 }
 .logo-font{
-  
+  position: relative;
+  float: right;
+  line-height: 80px;
+  font-size: 20px;
 }
 </style>

@@ -6,7 +6,7 @@
           <div>最新文章</div>
           <div class="post-re-list settings-main_border" id="post-re-list">
             <a
-              :href="'/detail/'+item.id"
+              :href="'/detail/'+item.id+'/1'"
               class="post-re-each settings-main_border settings-text_color"
               v-for="(item, index) in newArticles"
               :key="index"

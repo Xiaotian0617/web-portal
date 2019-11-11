@@ -41,8 +41,8 @@
               </dl>
             </li>
 
-            <li>
-              <dl>
+            <li style="width:350px">
+              <dl style="float:left">
                 <dt>
                   <a href="#" class="settings-footer_text_color">百年培训课程</a>
 
@@ -67,22 +67,21 @@
                 <dd>
                   <a href="#" class="footer-link settings-footer_text_color">内部控制系列</a>
                 </dd>
+
+                <dd>
+                  <a href="#" class="footer-link settings-footer_text_color">现金管理系列</a>
+                </dd>
               </dl>
-            </li>
-            <li>
-              <dl>
-                <dt>
-                  <a href="#" class="settings-footer_text_color">百年培训课程</a>
+              <dl style="float:right">
+
+                 <dt>
+                  <a href="#" class="settings-footer_text_color">&nbsp;</a>
 
                   <div class="post-dir-btn">
                     <i class="main-ico main-ico-down"></i>
                     <i class="main-ico main-ico-up"></i>
                   </div>
                 </dt>
-
-                <dd>
-                  <a href="#" class="footer-link settings-footer_text_color">现金管理系列</a>
-                </dd>
 
                 <dd>
                   <a href="#" class="footer-link settings-footer_text_color">投融资系列</a>
@@ -98,6 +97,35 @@
 
                 <dd>
                   <a href="#" class="footer-link settings-footer_text_color">财务工具系列</a>
+                </dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>
+                  <a href="#" class="settings-footer_text_color">培训技巧</a>
+
+                  <div class="post-dir-btn">
+                    <i class="main-ico main-ico-down"></i>
+                    <i class="main-ico main-ico-up"></i>
+                  </div>
+
+                </dt>
+
+                <dd>
+                  <a href="#" class="footer-link settings-footer_text_color">课题研究</a>
+                </dd>
+
+                <dd>
+                  <a href="#" class="footer-link settings-footer_text_color">理论研究</a>
+                </dd>
+
+                <dd>
+                  <a href="#" class="footer-link settings-footer_text_color">沙盘演练</a>
+                </dd>
+
+                <dd>
+                  <a href="#" class="footer-link settings-footer_text_color">模拟实战</a>
                 </dd>
               </dl>
             </li>

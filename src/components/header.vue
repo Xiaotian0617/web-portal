@@ -3,8 +3,9 @@
     <div id="header">
       <div class="head_wrapper">
         <a href="/" class="logo">
-          <img src="./../assets/img/home/logo.png" alt="百年精准" class="logo" />
+          <img src="./../assets/img/home/logo.png" alt="百年精准" class="logo" /> 
         </a>
+        <div class="logo-font">百年精准</div>
         <ul class="header_ul">
           <li class="nv_list" v-for="(item, index) in memuList" :key="index">
             <a :href="getHeaderHref(item,index)" class="nav_item">{{item.nmName}}</a>
@@ -144,5 +145,8 @@ export default {
 }
 .logo {
   width: 80px;
+}
+.logo-font{
+  
 }
 </style>

@@ -9,9 +9,9 @@
         <li>手机号: &nbsp;&nbsp;{{user.phone}}</li>
         <li>邮箱: &nbsp;&nbsp;{{user.email}}</li>
         <li>真实姓名: &nbsp;&nbsp;{{user.realName}}</li>
-        <li>绑定的银行卡号:&nbsp;&nbsp; {{user.bankAccount}}</li>
+        <!-- <li>绑定的银行卡号:&nbsp;&nbsp; {{user.bankAccount}}</li>
         <li>绑定的银行名: &nbsp;&nbsp;{{user.bankType}}</li>
-        <li>具体的支行信息: &nbsp;&nbsp;{{user.bank}}</li>
+        <li>具体的支行信息: &nbsp;&nbsp;{{user.bank}}</li> -->
       </ul>
     </Card>
   </div>

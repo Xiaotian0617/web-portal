@@ -33,14 +33,14 @@
                 <div class="post-list lazyload_scope">
                   <div class="post-list-each" v-for="(item, index) in articleList" :key="index">
                     <div class="post-list-head">
-                      <span class="post-info-dirs">
+                      <!-- <span class="post-info-dirs">
                         <a :href="item.href" class="settings-link_color">[{{item.classify}}]</a>
-                      </span>
+                      </span> -->
                       <span class="post-list-title settings-main_header_color">
                         <a :href="'/detail/'+item.id+'/1'">{{item.title}}</a>
                       </span>
                     </div>
-                    <span class="post-info-publish_at settings-main_desc_color">{{item.cTime}}</span>
+                    <span class="post-info-publish_at settings-main_desc_color">{{item.createDate}}</span>
                   </div>
                 </div>
 
@@ -114,7 +114,7 @@ export default {
       if (this.articleList.length == 0) {
         this.$Message["success"]({
           background: true,
-          content: "没有更多文章啦~"
+          content: '没有更多文章啦~'
         });
       }
     }

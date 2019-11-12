@@ -14,8 +14,14 @@ function getArticleList(data) {
   return http.postAxios('/chapter/findByNavMenuId', data);
 }
 
+// 首页数据接口
+function getHomeData(data){
+  return http.postAxios('/chapter/home',data);
+}
+
 module.exports = {
   getMemu,
   getArticleById,
-  getArticleList
+  getArticleList,
+  getHomeData
 };

@@ -10,24 +10,10 @@
         :trigger="setting.trigger"
         :arrow="setting.arrow"
         class="slide">
-        <CarouselItem>
+        <CarouselItem v-for="(item,index) in topList" :key="index">
             <div>
-              <a href="javascript:void(0);">
-                <img width="100%" class="carouse-img" :src="indexSlide1" alt="carouse1">
-              </a>
-            </div>
-        </CarouselItem>
-        <CarouselItem>
-            <div>
-              <a href="javascript:void(0);">
-                <img width="100%"  class="carouse-img" :src="indexSlide2" alt="carouse2">
-              </a>
-            </div>
-        </CarouselItem>
-        <CarouselItem>
-            <div>
-              <a href="javascript:void(0);">
-                <img width="100%"  class="carouse-img" :src="indexSlide3" alt="carouse3">
+              <a :href="item.id < 10 ? '#':'/detail/'+item.id+'/1'">
+                <img width="100%" class="carouse-img" :src="item.imgUrl" alt="carouse1">
               </a>
             </div>
         </CarouselItem>
@@ -37,56 +23,23 @@
         <div class="article">
           <div class="outer">
             <h2>实时动态</h2>
-            <Tabs value="active">
-              <TabPane label="学习中心" name='active'>
-                <article-list :articleList="sdutyList"/>
-              </TabPane>
-              <TabPane label="新闻中心">
-                <article-list :articleList="sdutyList"/>
-              </TabPane>
-              <TabPane label="本月活动">
-                <article-list :articleList="sdutyList"/>
-              </TabPane>
-              <TabPane label="相关报道">
+            <Tabs :value="tabIndex" @on-click="changeTabs">
+              <TabPane :label="item.title" :name="index" v-for="(item,index) in leftClassify" :key="index">
                 <article-list :articleList="sdutyList"/>
               </TabPane>
           </Tabs>
           </div>
         </div>
         <div class="photo_gallery">
-          <a href="http://changchun.theme.yurl.vip/posts/x000028" class="photo_item">
-            <img :src="slide1" />
-          </a>
-          <a href="http://changchun.theme.yurl.vip/posts/x000031" class="photo_item">
-            <img :src="slide2" />
-          </a>
-          <a href="http://changchun.theme.yurl.vip/posts/x000032" class="photo_item">
-            <img :src="slide3" />
+          <a :href="item.id < 10 ? '#':'/detail/'+item.id+'/1'" class="photo_item" v-for="(item,index) in rightList" :key="index">
+            <img :src="item.imgUrl" />
           </a>
         </div>
         <div class="bnr">
-          <a href="http://changchun.theme.yurl.vip/posts/x000030" class="bnr_item bnr_item_1">
-            <img :src="bnr1" />
+          <a :href="item.id < 10 ? '#':'/detail/'+item.id+'/1'" :class="'bnr_item bnr_item_'+(index+1)" v-for="(item,index) in bottomList" :key="index">
+            <img :src="item.imgUrl" />
             <div class="bnr_item_bottom">
-              <span class="bnr_item_title">职场英语说话艺术之10句职场用语推荐</span>
-            </div>
-          </a>
-          <a href="http://changchun.theme.yurl.vip/posts/x000029" class="bnr_item bnr_item_2">
-            <img :src="bnr2" />
-            <div class="bnr_item_bottom">
-              <span class="bnr_item_title">职场英语——外企“菜鸟”最容易犯的错误</span>
-            </div>
-          </a>
-          <a href="http://changchun.theme.yurl.vip/posts/x000028" class="bnr_item bnr_item_3">
-            <img :src="bnr3" />
-            <div class="bnr_item_bottom">
-              <span class="bnr_item_title">英语口语——那些让你出口成章的英语短语</span>
-            </div>
-          </a>
-          <a href="http://changchun.theme.yurl.vip/posts/x000027" class="bnr_item bnr_item_4">
-            <img :src="bnr4" />
-            <div class="bnr_item_bottom">
-              <span class="bnr_item_title">这一次，我们不仅深入美国文化 更探索地球奇迹！</span>
+              <span class="bnr_item_title">{{item.title}}</span>
             </div>
           </a>
         </div>
@@ -98,6 +51,32 @@
 <script>
 import ArticleList from './article-list';
 export default {
+  props:{
+    topList:{
+      type: Array,
+      default:[{id:1,imgUrl:this.indexSlide1},{id:2,imgUrl:this.indexSlide2},{id:3,imgUrl:this.indexSlide3}]
+    },
+    rightList:{
+      type: Array,
+      default:[{id:1,imgUrl:this.slide1},{id:2,imgUrl:this.slide2},{id:3,imgUrl:this.slide3}]
+    },
+    bottomList:{
+      type: Array,
+      default:[{id:1,imgUrl:this.bnr1},{id:2,imgUrl:this.bnr2},{id:3,imgUrl:this.bnr3},{id:4,imgUrl:this.bnr4}]
+    },
+    leftClassify:{
+      type: Array,
+      default:[{
+          title:'学习中心'
+        },{
+          title:'新闻中心'
+        },{
+          title:'本月活动'
+        },{
+          title:'相关报道'
+        }]
+    }
+  },
   name: 'MyMain',
   components: {
     ArticleList
@@ -117,6 +96,8 @@ export default {
         trigger: 'hover',
         arrow: 'hover'
       },
+      // 左侧分类选中数
+      tabIndex: 0,
       indexSlide1: require('@/assets/img/home/head1.jpg'),
       indexSlide2: require('@/assets/img/home/head2.jpg'),
       indexSlide3: require('@/assets/img/home/head3.jpg'),
@@ -148,7 +129,13 @@ export default {
         title: '为什么邀请李克强到加拿大开会？',
         summary: '李克强总理3月15日在北京表示，站在‘互联网＋’的风口上顺势而为，会使中国经济飞起来。当天，总理前往3W 咖啡，体验了一杯“互联网泡沫咖啡”！'
       }]
-    };
+    }
+  },
+  methods:{
+    // 左侧文章分类选择标签点击事件
+    changeTabs(name){
+      this.tabIndex = name;
+    }
   }
 };
 </script>

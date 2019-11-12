@@ -15,8 +15,8 @@ function getArticleList(data) {
 }
 
 // 首页数据接口
-function getHomeData(data){
-  return http.postAxios('/chapter/home',data);
+function getHomeData(data) {
+  return http.postAxios('/chapter/home', data);
 }
 
 module.exports = {

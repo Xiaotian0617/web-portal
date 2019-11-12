@@ -24,8 +24,8 @@
           <div class="outer">
             <h2>实时动态</h2>
             <Tabs :value="tabIndex" @on-click="changeTabs">
-              <TabPane :label="item.title" :name="index" v-for="(item,index) in leftClassify" :key="index">
-                <article-list :articleList="sdutyList"/>
+              <TabPane :label="item.nmName" :name="index+''" v-for="(item,index) in leftClassify" :key="index">
+                <article-list :articleList="item.list?item.list:[]"/>
               </TabPane>
           </Tabs>
           </div>
@@ -49,31 +49,36 @@
   </div>
 </template>
 <script>
+import homeApi from '@/api/home';
 import ArticleList from './article-list';
 export default {
   props:{
     topList:{
       type: Array,
-      default:[{id:1,imgUrl:this.indexSlide1},{id:2,imgUrl:this.indexSlide2},{id:3,imgUrl:this.indexSlide3}]
+      default:[]
     },
     rightList:{
       type: Array,
-      default:[{id:1,imgUrl:this.slide1},{id:2,imgUrl:this.slide2},{id:3,imgUrl:this.slide3}]
+      default:[]
     },
     bottomList:{
       type: Array,
-      default:[{id:1,imgUrl:this.bnr1},{id:2,imgUrl:this.bnr2},{id:3,imgUrl:this.bnr3},{id:4,imgUrl:this.bnr4}]
+      default:[]
     },
     leftClassify:{
       type: Array,
       default:[{
-          title:'学习中心'
+          nmName:'学习中心',
+          list:[]
         },{
-          title:'新闻中心'
+          nmName:'新闻中心',
+          list:[]
         },{
-          title:'本月活动'
+          nmName:'本月活动',
+          list:[]
         },{
-          title:'相关报道'
+          nmName:'相关报道',
+          list:[]
         }]
     }
   },
@@ -97,44 +102,25 @@ export default {
         arrow: 'hover'
       },
       // 左侧分类选中数
-      tabIndex: 0,
-      indexSlide1: require('@/assets/img/home/head1.jpg'),
-      indexSlide2: require('@/assets/img/home/head2.jpg'),
-      indexSlide3: require('@/assets/img/home/head3.jpg'),
-      slide1: require('@/assets/img/home/slide_01.png'),
-      slide2: require('@/assets/img/home/slide_02.png'),
-      slide3: require('@/assets/img/home/slide_03.png'),
-      bnr1: require('@/assets/img/home/bottom1.jpg'),
-      bnr2: require('@/assets/img/home/bottom2.jpg'),
-      bnr3: require('@/assets/img/home/bottom3.jpg'),
-      bnr4: require('@/assets/img/home/bottom4.jpg'),
-      sdutyList: [{
-        href: 'http://changchun.theme.yurl.vip/posts/x000037',
-        title: '为什么邀请李克强到加拿大开会？',
-        summary: '李克强总理3月15日在北京表示，站在‘互联网＋’的风口上顺势而为，会使中国经济飞起来。当天，总理前往3W 咖啡，体验了一杯“互联网泡沫咖啡”！'
-      }, {
-        href: 'http://changchun.theme.yurl.vip/posts/x000037',
-        title: '为什么邀请李克强到加拿大开会？',
-        summary: '李克强总理3月15日在北京表示，站在‘互联网＋’的风口上顺势而为，会使中国经济飞起来。当天，总理前往3W 咖啡，体验了一杯“互联网泡沫咖啡”！'
-      }, {
-        href: 'http://changchun.theme.yurl.vip/posts/x000037',
-        title: '为什么邀请李克强到加拿大开会？',
-        summary: '李克强总理3月15日在北京表示，站在‘互联网＋’的风口上顺势而为，会使中国经济飞起来。当天，总理前往3W 咖啡，体验了一杯“互联网泡沫咖啡”！'
-      }, {
-        href: 'http://changchun.theme.yurl.vip/posts/x000037',
-        title: '为什么邀请李克强到加拿大开会？',
-        summary: '李克强总理3月15日在北京表示，站在‘互联网＋’的风口上顺势而为，会使中国经济飞起来。当天，总理前往3W 咖啡，体验了一杯“互联网泡沫咖啡”！'
-      }, {
-        href: 'http://changchun.theme.yurl.vip/posts/x000037',
-        title: '为什么邀请李克强到加拿大开会？',
-        summary: '李克强总理3月15日在北京表示，站在‘互联网＋’的风口上顺势而为，会使中国经济飞起来。当天，总理前往3W 咖啡，体验了一杯“互联网泡沫咖啡”！'
-      }]
+      tabIndex: '0'
+    }
+  },
+  watch:{
+    leftClassify:function(newValue,oldValue){
+      for (const index in this.leftClassify) {
+        this.getAirtcleList(index);
+      }
     }
   },
   methods:{
     // 左侧文章分类选择标签点击事件
-    changeTabs(name){
-      this.tabIndex = name;
+    changeTabs(index){
+      this.tabIndex = index;
+      // this.getAirtcleList(index);
+    },
+    async getAirtcleList(index){
+      let res = await homeApi.getArticleList({navMenuId:this.leftClassify[index].id});
+      this.leftClassify[index].list = res.data;
     }
   }
 };

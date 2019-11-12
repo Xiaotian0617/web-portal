@@ -26,7 +26,17 @@ export default {
       // 右侧图片
       rightList: null,
       // 底部图片
-      bottomList: null
+      bottomList: null,
+      indexSlide1: require('@/assets/img/home/head1.jpg'),
+      indexSlide2: require('@/assets/img/home/head2.jpg'),
+      indexSlide3: require('@/assets/img/home/head3.jpg'),
+      slide1: require('@/assets/img/home/slide_01.png'),
+      slide2: require('@/assets/img/home/slide_02.png'),
+      slide3: require('@/assets/img/home/slide_03.png'),
+      bnr1: require('@/assets/img/home/bottom1.jpg'),
+      bnr2: require('@/assets/img/home/bottom2.jpg'),
+      bnr3: require('@/assets/img/home/bottom3.jpg'),
+      bnr4: require('@/assets/img/home/bottom4.jpg'),
     };
   },
   watch:{
@@ -50,19 +60,27 @@ export default {
       try {
         res = await homeApi.getHomeData({});
       } catch (error) {
-        
+        this.$Message["error"]({
+            background: true,
+            content: "似乎有点问题奥，刷新下吧~"
+          });
       }
+      // 设置默认值
+      this.leftClassify = this.memuList[0].children;
+      this.topList = [{id:1,imgUrl:this.indexSlide1},{id:2,imgUrl:this.indexSlide2},{id:3,imgUrl:this.indexSlide3}];
+      this.rightList = [{id:1,imgUrl:this.slide1},{id:2,imgUrl:this.slide2},{id:3,imgUrl:this.slide3}];
+      this.bottomList = [{id:1,imgUrl:this.bnr1},{id:2,imgUrl:this.bnr2},{id:3,imgUrl:this.bnr3},{id:4,imgUrl:this.bnr4}];
       if(this.memuList[0].children){
-        leftClassify = this.memuList[0].children;
+        this.leftClassify = this.memuList[0].children;
       }
       if(res.data.topList){
-        topList = res.data.topList;
+        this.topList = res.data.topList;
       }
       if(res.data.rightList){
-        rightList = res.data.rightList;
+        this.rightList = res.data.rightList;
       }
       if(res.data.bottomList){
-        bottomList = res.data.bottomList;
+        this.bottomList = res.data.bottomList;
       }
     }
   }

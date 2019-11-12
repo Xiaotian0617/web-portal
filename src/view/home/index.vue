@@ -27,6 +27,7 @@ export default {
     async getMemuList () {
       let res = await homeApi.getMemu();
       this.memuList = res.data;
+      this.$cookie.set('memu', JSON.stringify(res.data), 1);
     }
   }
 };

@@ -5,12 +5,18 @@
         <div class="sidebar">
           <div class="post-dirs-wrapper">
             <ul class="post-dirs-list settings-main_border" id="post-dirs-list">
-              <li class="post-dir-1 settings-main_border" :class="index == articleIndex?'active':''" v-for="(item, index) in articleClassify" :key="index">
+              <li
+                class="post-dir-1 settings-main_border"
+                :class="index == articleIndex?'active':''"
+                v-for="(item, index) in articleClassify"
+                :key="index"
+              >
                 <a
-                  :href="item.href"
+                  @click="initArticleList(item.id,1,index)"
                   class="post-dir-1-box settings-text_color"
                 >
-                  <span class="post-dir-dot"></span>{{item.title}}
+                  <span class="post-dir-dot"></span>
+                  {{item.nmName}}
                 </a>
               </li>
             </ul>
@@ -21,50 +27,26 @@
           <div class="post-wrapper">
             <div class="post-cont settings-main_content_background_color">
               <div class="pageTitle txt-overflow">
-                <h2>{{articleClassify[articleIndex].title}}</h2>
+                <h2>{{rightLable}}</h2>
               </div>
               <div class="post">
                 <div class="post-list lazyload_scope">
                   <div class="post-list-each" v-for="(item, index) in articleList" :key="index">
                     <div class="post-list-head">
                       <span class="post-info-dirs">
-                        <a
-                          :href="item.href"
-                          class="settings-link_color"
-                        >[{{item.classify}}]</a>
+                        <a :href="item.href" class="settings-link_color">[{{item.classify}}]</a>
                       </span>
                       <span class="post-list-title settings-main_header_color">
-                        <a :href="item.href">{{item.title}}</a>
+                        <a :href="'/detail/'+item.id+'/1'">{{item.title}}</a>
                       </span>
                     </div>
                     <span class="post-info-publish_at settings-main_desc_color">{{item.cTime}}</span>
                   </div>
-
                 </div>
 
-                <div class="prolist-spfilter-pagenation">
-                  <a
-                    class="prolist-spfilter-pagenation-prev prolist-spfilter-pagenation-prev-disable settings-pagiDisColor"
-                    href="javascript:void(0);"
-                  >&lt;</a>
-
-                  <span class="prolist-spfilter-pagenation-status">
-                    <a
-                      class="settings-pagiColor settings-pagiHoverColor selected"
-                      href="http://changchun.theme.yurl.vip/posts?size=10&amp;page=1"
-                    >1</a>
-
-                    <a
-                      class="settings-pagiColor settings-pagiHoverColor"
-                      href="http://changchun.theme.yurl.vip/posts?size=10&amp;page=2"
-                    >2</a>
-                  </span>
-
-                  <a
-                    class="prolist-spfilter-pagenation-next settings-pagiColor settings-pagiHoverColor"
-                    href="http://changchun.theme.yurl.vip/posts?size=10&amp;page=2"
-                  >&gt;</a>
-                </div>
+                <!-- <div class="prolist-spfilter-pagenation">
+                  <Page :total="100" />
+                </div>-->
               </div>
             </div>
           </div>
@@ -74,85 +56,68 @@
   </div>
 </template>
 <script>
+import HomeApi from "@/api/home.js";
 export default {
-  name: 'MyMain',
-  data () {
+  name: "MyMain",
+  data() {
     return {
       // 右侧文章列表
-      articleList: [{
-        classify: '本月活动',
-        title: '成人英语培训——如何用英语来称呼另一半',
-        cTime: '2017-03-01 10:57',
-        href: '/news'
-      }, {
-        classify: '本月活动',
-        title: '成人英语培训——如何用英语来称呼另一半',
-        cTime: '2017-03-01 10:57',
-        href: '#'
-      }, {
-        classify: '本月活动',
-        title: '成人英语培训——如何用英语来称呼另一半',
-        cTime: '2017-03-01 10:57',
-        href: '#'
-      }, {
-        classify: '本月活动',
-        title: '成人英语培训——如何用英语来称呼另一半',
-        cTime: '2017-03-01 10:57',
-        href: '#'
-      }, {
-        classify: '本月活动',
-        title: '成人英语培训——如何用英语来称呼另一半',
-        cTime: '2017-03-01 10:57',
-        href: '#'
-      }, {
-        classify: '本月活动',
-        title: '成人英语培训——如何用英语来称呼另一半',
-        cTime: '2017-03-01 10:57',
-        href: '#'
-      }, {
-        classify: '本月活动',
-        title: '成人英语培训——如何用英语来称呼另一半',
-        cTime: '2017-03-01 10:57',
-        href: '#'
-      }, {
-        classify: '本月活动',
-        title: '成人英语培训——如何用英语来称呼另一半',
-        cTime: '2017-03-01 10:57',
-        href: '#'
-      }, {
-        classify: '本月活动',
-        title: '成人英语培训——如何用英语来称呼另一半',
-        cTime: '2017-03-01 10:57',
-        href: '#'
-      }, {
-        classify: '本月活动',
-        title: '成人英语培训——如何用英语来称呼另一半',
-        cTime: '2017-03-01 10:57',
-        href: '#'
-      }],
+      articleList: [],
       // 文章分类
-      articleClassify: [{
-        title: '全部文章',
-        href: '#'
-      }, {
-        title: '英语咨询',
-        href: '#'
-      }, {
-        title: '学习中心',
-        href: '#'
-      }, {
-        title: '新闻中心',
-        href: '#'
-      }, {
-        title: '本月活动',
-        href: '#'
-      }, {
-        title: '相关报道',
-        href: '#'
-      } ],
+      articleClassify: [],
       // 当前选择分类
-      articleIndex: 0
+      articleIndex: -1,
+      // 当前选择菜单
+      memuName: "",
+      rightLable: "全部文章"
     };
+  },
+  mounted() {
+    let index = this.$route.params.index;
+    let type = this.$route.params.type;
+    // 页面加载时根据文章id获取文章详情
+    this.initArticleList(index, type);
+  },
+  methods: {
+    // 在头部菜单时 index 代表位于菜单的第几个
+    // 在左侧分类点击时，index 代表菜单id
+    async initArticleList(index, type, clickIndex = 0) {
+      let classifyStr = this.$cookie.get("memu");
+      if (!classifyStr) {
+        this.$Message["error"]({
+          background: true,
+          content: "无效的菜单，请重试"
+        });
+        return;
+      }
+      let param = {};
+      if (type == 0) {
+        // 从头部菜单来的
+        let classify = JSON.parse(classifyStr);
+        if (!classify[index]) {
+          this.$Message["error"]({
+            background: true,
+            content: "此菜单无列表，请重试"
+          });
+          return;
+        }
+        this.memuName = classify[index].nmName;
+        this.articleClassify = classify[index].children;
+        param.navMenuId = this.articleClassify[0].parentId;
+      } else {
+        this.articleIndex = clickIndex;
+        this.rightLable = this.articleClassify[clickIndex].nmName;
+        param.navMenuId = index;
+      }
+      let res = await HomeApi.getArticleList(param);
+      this.articleList = res.data;
+      if (this.articleList.length == 0) {
+        this.$Message["success"]({
+          background: true,
+          content: "没有更多文章啦~"
+        });
+      }
+    }
   }
 };
 </script>

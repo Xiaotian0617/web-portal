@@ -5,15 +5,13 @@
       <div class="footer-t settings-main_border">
         <div class="footer-t-r">
           <div class="footer-qr-each settings-footer_text_color">
-            <div class="footer-wb-title">
-              <a href="http://weibo.com/youhaosuda">官方微博</a>
-            </div>
-            <img src="./../assets/img/home/index_footer_qr_2.png" />
-            技术支持
+            <div class="footer-wx-title">&nbsp;</div>
+            <img src="./../assets/img/home/gongzhonghao.jpg" />
+            官方公众号
           </div>
           <div class="footer-qr-each settings-footer_text_color">
             <div class="footer-wx-title">关注我们</div>
-            <img src="./../assets/img/home/index_footer_qr_1.png" />
+            <img src="./../assets/img/home/about.jpg" />
             官方微信
           </div>
         </div>
@@ -22,7 +20,7 @@
             <li>
               <dl>
                 <dt>
-                  <a href="http://changchun.theme.yurl.vip/" class="settings-footer_text_color">关于我们</a>
+                  <a href="#" class="settings-footer_text_color">关于我们</a>
                   <div class="post-dir-btn">
                     <i class="main-ico main-ico-down"></i>
                     <i class="main-ico main-ico-up"></i>
@@ -30,42 +28,23 @@
                 </dt>
 
                 <dd>
-                  <a
-                    href="http://changchun.theme.yurl.vip/"
-                    class="footer-link settings-footer_text_color"
-                  >公司简介</a>
+                  <a href="#" class="footer-link settings-footer_text_color">公司介绍</a>
                 </dd>
 
                 <dd>
-                  <a
-                    href="http://changchun.theme.yurl.vip/"
-                    class="footer-link settings-footer_text_color"
-                  >获奖记录</a>
+                  <a href="#" class="footer-link settings-footer_text_color">社会招聘</a>
                 </dd>
 
                 <dd>
-                  <a
-                    href="http://changchun.theme.yurl.vip/"
-                    class="footer-link settings-footer_text_color"
-                  >教学资质</a>
-                </dd>
-
-                <dd>
-                  <a
-                    href="http://changchun.theme.yurl.vip/"
-                    class="footer-link settings-footer_text_color"
-                  >英语外教</a>
+                  <a href="#" class="footer-link settings-footer_text_color">专家团队</a>
                 </dd>
               </dl>
             </li>
 
-            <li>
-              <dl>
+            <li style="width:280px">
+              <dl style="float:left">
                 <dt>
-                  <a
-                    href="http://changchun.theme.yurl.vip/"
-                    class="settings-footer_text_color"
-                  >英语培训课程</a>
+                  <a href="#" class="settings-footer_text_color">百年培训课程</a>
 
                   <div class="post-dir-btn">
                     <i class="main-ico main-ico-down"></i>
@@ -74,119 +53,79 @@
                 </dt>
 
                 <dd>
-                  <a
-                    href="http://changchun.theme.yurl.vip/"
-                    class="footer-link settings-footer_text_color"
-                  >商务英语</a>
+                  <a href="#" class="footer-link settings-footer_text_color">非财务综合系列</a>
                 </dd>
 
                 <dd>
-                  <a
-                    href="http://changchun.theme.yurl.vip/"
-                    class="footer-link settings-footer_text_color"
-                  >职场英语</a>
+                  <a href="#" class="footer-link settings-footer_text_color">预算管理系列</a>
                 </dd>
 
                 <dd>
-                  <a
-                    href="http://changchun.theme.yurl.vip/"
-                    class="footer-link settings-footer_text_color"
-                  >英语口语</a>
+                  <a href="#" class="footer-link settings-footer_text_color">成本管理条例</a>
                 </dd>
 
                 <dd>
-                  <a
-                    href="http://changchun.theme.yurl.vip/"
-                    class="footer-link settings-footer_text_color"
-                  >基础英语</a>
+                  <a href="#" class="footer-link settings-footer_text_color">内部控制系列</a>
+                </dd>
+
+                <dd>
+                  <a href="#" class="footer-link settings-footer_text_color">现金管理系列</a>
+                </dd>
+              </dl>
+              <dl style="float:right">
+
+                 <dt>
+                  <a href="#" class="settings-footer_text_color">&nbsp;</a>
+
+                  <div class="post-dir-btn">
+                    <i class="main-ico main-ico-down"></i>
+                    <i class="main-ico main-ico-up"></i>
+                  </div>
+                </dt>
+
+                <dd>
+                  <a href="#" class="footer-link settings-footer_text_color">投融资系列</a>
+                </dd>
+
+                <dd>
+                  <a href="#" class="footer-link settings-footer_text_color">税务管理与筹划</a>
+                </dd>
+
+                <dd>
+                  <a href="#" class="footer-link settings-footer_text_color">会计准则系列</a>
+                </dd>
+
+                <dd>
+                  <a href="#" class="footer-link settings-footer_text_color">财务工具系列</a>
                 </dd>
               </dl>
             </li>
-
             <li>
               <dl>
                 <dt>
-                  <a
-                    href="http://changchun.theme.yurl.vip/"
-                    class="settings-footer_text_color"
-                  >英语培训中心</a>
+                  <a href="#" class="settings-footer_text_color">培训技巧</a>
 
                   <div class="post-dir-btn">
                     <i class="main-ico main-ico-down"></i>
                     <i class="main-ico main-ico-up"></i>
                   </div>
+
                 </dt>
 
                 <dd>
-                  <a
-                    href="http://changchun.theme.yurl.vip/"
-                    class="footer-link settings-footer_text_color"
-                  >上海英语培训</a>
+                  <a href="#" class="footer-link settings-footer_text_color">课题研究</a>
                 </dd>
 
                 <dd>
-                  <a
-                    href="http://changchun.theme.yurl.vip/"
-                    class="footer-link settings-footer_text_color"
-                  >北京英语培训</a>
+                  <a href="#" class="footer-link settings-footer_text_color">理论研究</a>
                 </dd>
 
                 <dd>
-                  <a
-                    href="http://changchun.theme.yurl.vip/"
-                    class="footer-link settings-footer_text_color"
-                  >广州英语培训</a>
+                  <a href="#" class="footer-link settings-footer_text_color">沙盘演练</a>
                 </dd>
 
                 <dd>
-                  <a
-                    href="http://changchun.theme.yurl.vip/"
-                    class="footer-link settings-footer_text_color"
-                  >深圳英语培训</a>
-                </dd>
-              </dl>
-            </li>
-
-            <li>
-              <dl>
-                <dt>
-                  <a
-                    href="http://changchun.theme.yurl.vip/"
-                    class="settings-footer_text_color"
-                  >英语学习技巧</a>
-
-                  <div class="post-dir-btn">
-                    <i class="main-ico main-ico-down"></i>
-                    <i class="main-ico main-ico-up"></i>
-                  </div>
-                </dt>
-
-                <dd>
-                  <a
-                    href="http://changchun.theme.yurl.vip/"
-                    class="footer-link settings-footer_text_color"
-                  >英语口语</a>
-                </dd>
-
-                <dd>
-                  <a
-                    href="http://changchun.theme.yurl.vip/"
-                    class="footer-link settings-footer_text_color"
-                  >英语面试</a>
-                </dd>
-
-                <dd>
-                  <a
-                    href="http://changchun.theme.yurl.vip/"
-                    class="footer-link settings-footer_text_color"
-                  >商务演讲</a>
-                </dd>
-
-                <dd>
-                  <a
-                    href="http://changchun.theme.yurl.vip/"
-                    class="footer-link settings-footer_text_color"
-                  >西方文化</a>
+                  <a href="#" class="footer-link settings-footer_text_color">模拟实战</a>
                 </dd>
               </dl>
             </li>
@@ -195,37 +134,23 @@
       </div>
     </div>
     <div class="footer-b">
-      <div
-        class="footer-b-l settings-footer_text_color"
-      >© 2019 youhaosuda.com All rights reserved. Powered by Youhaosuda.</div>
+      <div class="footer-b-l settings-footer_text_color">© 2019 北京百年精准管理咨询有限公司.</div>
       <div class="footer-b-r">
         <ul id="icp-icon" class="icp-icon">
           <li>
-            <a
-              class="icp-icon-3 settings-footer_text_color"
-              href="http://www.youhaosuda.com/"
-              target="_blank"
-            >
+            <a class="icp-icon-3 settings-footer_text_color" href="#" target="_blank">
               可信联盟
               <br />身份验证
             </a>
           </li>
           <li>
-            <a
-              class="icp-icon-2 settings-footer_text_color"
-              href="http://www.youhaosuda.com/"
-              target="_blank"
-            >
+            <a class="icp-icon-2 settings-footer_text_color" href="#" target="_blank">
               工商网监
               <br />电子标识
             </a>
           </li>
           <li>
-            <a
-              class="icp-icon-1 settings-footer_text_color"
-              href="http://www.youhaosuda.com/"
-              target="_blank"
-            >
+            <a class="icp-icon-1 settings-footer_text_color" href="#" target="_blank">
               安全联盟
               <br />实名验证
             </a>
@@ -237,6 +162,6 @@
 </template>
 <script>
 export default {
-  name: 'MyFooter'
+  name: "MyFooter"
 };
 </script>

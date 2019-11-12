@@ -12,24 +12,14 @@ export default new Router({
       component: () => import('@/view/home/index.vue')
     },
     {
-      path: '/study',
-      name: '英语学习',
+      path: '/list/:index/:type/',
+      name: '文章列表',
       component: () => import('@/view/article/list/index.vue')
     },
     {
-      path: '/news',
-      name: '新闻动态',
+      path: '/detail/:id/:type/',
+      name: '文章详情',
       component: () => import('@/view/article/detail/index.vue')
-    },
-    {
-      path: '/other',
-      name: '相关活动',
-      component: () => import('@/view/article/detail/index.vue')
-    },
-    {
-      path: '/about',
-      name: '关于我们',
-      component: () => import('@/view/article/list/index.vue')
     }
   ]
 });

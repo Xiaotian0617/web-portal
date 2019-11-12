@@ -1,6 +1,6 @@
 import Axios from 'axios';
+import { Message } from 'view-design';
 // import config from '../../config/index.js';
-// 之所以封装这个axios，是因为在一些请求中，无法上传信息，很尴尬，估计原因是继承的有问题，无法携带headers
 const baseUrl = 'http://39.105.41.187:8080';
 let axios = Axios.create({
   baseURL: baseUrl,
@@ -27,6 +27,13 @@ axios
   .response
   .use((res) => {
     let { data } = res;
+    if (data.code !== '0') {
+      Message['error']({
+        background: true,
+        content: data.code
+      });
+      return Promise.reject(data);
+    }
     return data;
   }, (error) => {
     // 对响应错误做点什么

@@ -52,34 +52,34 @@
 import homeApi from '@/api/home';
 import ArticleList from './article-list';
 export default {
-  props:{
-    topList:{
+  props: {
+    topList: {
       type: Array,
-      default:[]
+      default: () => []
     },
-    rightList:{
+    rightList: {
       type: Array,
-      default:[]
+      default: () => []
     },
-    bottomList:{
+    bottomList: {
       type: Array,
-      default:[]
+      default: () => []
     },
-    leftClassify:{
+    leftClassify: {
       type: Array,
-      default:[{
-          nmName:'学习中心',
-          list:[]
-        },{
-          nmName:'新闻中心',
-          list:[]
-        },{
-          nmName:'本月活动',
-          list:[]
-        },{
-          nmName:'相关报道',
-          list:[]
-        }]
+      default: () => [{
+        nmName: '学习中心',
+        list: []
+      }, {
+        nmName: '新闻中心',
+        list: []
+      }, {
+        nmName: '本月活动',
+        list: []
+      }, {
+        nmName: '相关报道',
+        list: []
+      }]
     }
   },
   name: 'MyMain',
@@ -103,23 +103,23 @@ export default {
       },
       // 左侧分类选中数
       tabIndex: '0'
-    }
+    };
   },
-  watch:{
-    leftClassify:function(newValue,oldValue){
+  watch: {
+    leftClassify: function(newValue, oldValue) {
       for (const index in this.leftClassify) {
         this.getAirtcleList(index);
       }
     }
   },
-  methods:{
+  methods: {
     // 左侧文章分类选择标签点击事件
-    changeTabs(index){
+    changeTabs(index) {
       this.tabIndex = index;
       // this.getAirtcleList(index);
     },
-    async getAirtcleList(index){
-      let res = await homeApi.getArticleList({navMenuId:this.leftClassify[index].id});
+    async getAirtcleList(index) {
+      let res = await homeApi.getArticleList({navMenuId: this.leftClassify[index].id});
       this.leftClassify[index].list = res.data;
     }
   }

@@ -50,9 +50,9 @@
 </template>
 
 <script>
-import HomeApi from "@/api/home.js";
+import HomeApi from '@/api/home.js';
 export default {
-  name: "MyMain",
+  name: 'MyMain',
   data() {
     return {
       newArticles: [],
@@ -71,13 +71,13 @@ export default {
     // 从文章进来时 id表示文章id
     async getArticleDetail(id, type) {
       let param = {};
-      if (type == 0) {
+      if (type === '0') {
         let res = await HomeApi.getArticleList({ navMenuId: id });
         let articleList = res.data;
-        if (articleList.length == 0) {
-          this.$Message["success"]({
+        if (articleList.length === 0) {
+          this.$Message['success']({
             background: true,
-            content: "没有更多文章啦~"
+            content: '没有更多文章啦~'
           });
         }
         param.id = articleList[0].id;

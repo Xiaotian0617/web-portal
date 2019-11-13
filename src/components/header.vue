@@ -4,7 +4,7 @@
       <div class="head_wrapper">
         <div class="pa">
            <a href="/" class="logo">
-            <img src="./../assets/img/home/logo.png" alt="百年精准" class="logo" /> 
+            <img src="./../assets/img/home/logo.png" alt="百年精准" class="logo"/>
            </a>
            <div class="logo-font">百年精准</div>
         </div>
@@ -58,9 +58,9 @@
   </div>
 </template>
 <script>
-import MyForm from "./register";
-import PersonCenter from "./persion-center";
-import loginApi from "@/api/login";
+import MyForm from './register';
+import PersonCenter from './persion-center';
+import loginApi from '@/api/login';
 export default {
   props: {
     // 菜单列表
@@ -72,7 +72,7 @@ export default {
     MyForm,
     PersonCenter
   },
-  name: "MyHeader",
+  name: 'MyHeader',
   data() {
     return {
       // 弹窗显示
@@ -85,8 +85,8 @@ export default {
   },
   computed: {
     checkLogin: function() {
-      let userStr = this.$cookie.get("user");
-      if (userStr && userStr !== "null") {
+      let userStr = this.$cookie.get('user');
+      if (userStr && userStr !== 'null') {
         let user = JSON.parse(userStr);
         return false;
       }
@@ -96,15 +96,15 @@ export default {
   methods: {
     // 获取菜单的访问路径
     getHeaderHref(item, index) {
-      if (item.nmName == "首页") {
-        return "/";
+      if (item.nmName === '首页') {
+        return '/';
       }
       if (item.children) {
         // 列表
-        return "/list/" + index + "/0";
+        return '/list/' + index + '/0';
       } else {
         // 详情
-        return "/detail/" + item.id + "/0";
+        return '/detail/' + item.id + '/0';
       }
     },
     // 进行登录操作
@@ -113,17 +113,17 @@ export default {
       let result;
       if (this.isLogin) {
         result = await loginApi.doLogin(formData);
-        this.$Message["success"]({
+        this.$Message['success']({
           background: true,
-          content: "登录成功"
+          content: '登录成功'
         });
         this.showModel = false;
-        this.$cookie.set("user", JSON.stringify(result.data), 1);
+        this.$cookie.set('user', JSON.stringify(result.data), 1);
       } else {
         result = await loginApi.doRegister(formData);
-        this.$Message["success"]({
+        this.$Message['success']({
           background: true,
-          content: "注册成功"
+          content: '注册成功'
         });
         this.showModel = false;
       }

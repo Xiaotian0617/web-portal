@@ -14,7 +14,7 @@ export default {
     // 文章列表
     articleList: {
       type: Array,
-      default:[]
+      required: true
     }
   },
   data () {

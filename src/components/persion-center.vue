@@ -21,8 +21,8 @@ export default {
   data() {
     return {
       user: {
-        account: "",
-        password: ""
+        account: '',
+        password: ''
       }
     };
   },
@@ -31,13 +31,13 @@ export default {
   },
   methods: {
     initUser() {
-      let userStr = this.$cookie.get("user");
-      if (userStr && userStr !== "null") {
+      let userStr = this.$cookie.get('user');
+      if (userStr && userStr !== 'null') {
         this.user = JSON.parse(userStr);
       }
     },
     logout() {
-      this.$cookie.delete("user");
+      this.$cookie.delete('user');
       this.$router.go(0);
     }
   }

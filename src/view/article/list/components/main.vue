@@ -56,9 +56,9 @@
   </div>
 </template>
 <script>
-import HomeApi from "@/api/home.js";
+import HomeApi from '@/api/home.js';
 export default {
-  name: "MyMain",
+  name: 'MyMain',
   data() {
     return {
       // 右侧文章列表
@@ -68,8 +68,8 @@ export default {
       // 当前选择分类
       articleIndex: -1,
       // 当前选择菜单
-      memuName: "",
-      rightLable: "全部文章"
+      memuName: '',
+      rightLable: '全部文章'
     };
   },
   mounted() {
@@ -82,22 +82,22 @@ export default {
     // 在头部菜单时 index 代表位于菜单的第几个
     // 在左侧分类点击时，index 代表菜单id
     async initArticleList(index, type, clickIndex = 0) {
-      let classifyStr = this.$cookie.get("memu");
+      let classifyStr = this.$cookie.get('memu');
       if (!classifyStr) {
-        this.$Message["error"]({
+        this.$Message['error']({
           background: true,
-          content: "无效的菜单，请重试"
+          content: '无效的菜单，请重试'
         });
         return;
       }
       let param = {};
-      if (type == 0) {
+      if (type === '0') {
         // 从头部菜单来的
         let classify = JSON.parse(classifyStr);
         if (!classify[index]) {
-          this.$Message["error"]({
+          this.$Message['error']({
             background: true,
-            content: "此菜单无列表，请重试"
+            content: '此菜单无列表，请重试'
           });
           return;
         }
@@ -111,8 +111,8 @@ export default {
       }
       let res = await HomeApi.getArticleList(param);
       this.articleList = res.data;
-      if (this.articleList.length == 0) {
-        this.$Message["success"]({
+      if (this.articleList.length === 0) {
+        this.$Message['success']({
           background: true,
           content: '没有更多文章啦~'
         });

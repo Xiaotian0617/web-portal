@@ -36,11 +36,11 @@ export default {
       bnr1: require('@/assets/img/home/bottom1.jpg'),
       bnr2: require('@/assets/img/home/bottom2.jpg'),
       bnr3: require('@/assets/img/home/bottom3.jpg'),
-      bnr4: require('@/assets/img/home/bottom4.jpg'),
+      bnr4: require('@/assets/img/home/bottom4.jpg')
     };
   },
-  watch:{
-    memuList:function(newValue,oldValue){
+  watch: {
+    memuList: function (newValue, oldValue) {
       this.initData();
     }
   },
@@ -50,36 +50,36 @@ export default {
   methods: {
     // 获取菜单信息
     async getMemuList () {
-      let res = await homeApi.getMemu();
+      const res = await homeApi.getMemu();
       this.memuList = res.data;
       this.$cookie.set('memu', JSON.stringify(res.data), 1);
     },
     // 获取首页信息
-    async initData(){
+    async initData () {
       let res;
       try {
         res = await homeApi.getHomeData({});
       } catch (error) {
-        this.$Message["error"]({
-            background: true,
-            content: "似乎有点问题奥，刷新下吧~"
-          });
+        this.$Message['error']({
+          background: true,
+          content: '似乎有点问题奥，刷新下吧~'
+        });
       }
       // 设置默认值
       this.leftClassify = this.memuList[0].children;
-      this.topList = [{id:1,imgUrl:this.indexSlide1},{id:2,imgUrl:this.indexSlide2},{id:3,imgUrl:this.indexSlide3}];
-      this.rightList = [{id:1,imgUrl:this.slide1},{id:2,imgUrl:this.slide2},{id:3,imgUrl:this.slide3}];
-      this.bottomList = [{id:1,imgUrl:this.bnr1},{id:2,imgUrl:this.bnr2},{id:3,imgUrl:this.bnr3},{id:4,imgUrl:this.bnr4}];
-      if(this.memuList[0].children){
+      this.topList = [{ id: 1, imgUrl: this.indexSlide1 }, { id: 2, imgUrl: this.indexSlide2 }, { id: 3, imgUrl: this.indexSlide3 }];
+      this.rightList = [{ id: 1, imgUrl: this.slide1 }, { id: 2, imgUrl: this.slide2 }, { id: 3, imgUrl: this.slide3 }];
+      this.bottomList = [{ id: 1, imgUrl: this.bnr1 }, { id: 2, imgUrl: this.bnr2 }, { id: 3, imgUrl: this.bnr3 }, { id: 4, imgUrl: this.bnr4 }];
+      if (this.memuList[0].children) {
         this.leftClassify = this.memuList[0].children;
       }
-      if(res.data.topList){
+      if (res.data.topList) {
         this.topList = res.data.topList;
       }
-      if(res.data.rightList){
+      if (res.data.rightList) {
         this.rightList = res.data.rightList;
       }
-      if(res.data.bottomList){
+      if (res.data.bottomList) {
         this.bottomList = res.data.bottomList;
       }
     }

@@ -18,7 +18,7 @@
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
       user: {
         account: '',
@@ -26,17 +26,17 @@ export default {
       }
     };
   },
-  mounted() {
+  mounted () {
     this.initUser();
   },
   methods: {
-    initUser() {
-      let userStr = this.$cookie.get('user');
+    initUser () {
+      const userStr = this.$cookie.get('user');
       if (userStr && userStr !== 'null') {
         this.user = JSON.parse(userStr);
       }
     },
-    logout() {
+    logout () {
       this.$cookie.delete('user');
       this.$router.go(0);
     }

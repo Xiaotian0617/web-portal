@@ -73,7 +73,7 @@ export default {
     PersonCenter
   },
   name: 'MyHeader',
-  data() {
+  data () {
     return {
       // 弹窗显示
       showModel: false,
@@ -84,10 +84,9 @@ export default {
     };
   },
   computed: {
-    checkLogin: function() {
-      let userStr = this.$cookie.get('user');
+    checkLogin: function () {
+      const userStr = this.$cookie.get('user');
       if (userStr && userStr !== 'null') {
-        let user = JSON.parse(userStr);
         return false;
       }
       return true;
@@ -95,7 +94,7 @@ export default {
   },
   methods: {
     // 获取菜单的访问路径
-    getHeaderHref(item, index) {
+    getHeaderHref (item, index) {
       if (item.nmName === '首页') {
         return '/';
       }
@@ -108,8 +107,8 @@ export default {
       }
     },
     // 进行登录操作
-    async doLogin() {
-      let formData = this.$refs.myForm.getData();
+    async doLogin () {
+      const formData = this.$refs.myForm.getData();
       let result;
       if (this.isLogin) {
         result = await loginApi.doLogin(formData);
@@ -130,7 +129,7 @@ export default {
       this.$router.go(0);
     },
     // 更新当前状态
-    changeStatus(status) {
+    changeStatus (status) {
       this.isLogin = status;
     }
   }

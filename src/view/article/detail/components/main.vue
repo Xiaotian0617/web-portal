@@ -53,15 +53,15 @@
 import HomeApi from '@/api/home.js';
 export default {
   name: 'MyMain',
-  data() {
+  data () {
     return {
       newArticles: [],
       article: {}
     };
   },
-  mounted() {
-    let id = this.$route.params.id;
-    let type = this.$route.params.type;
+  mounted () {
+    const id = this.$route.params.id;
+    const type = this.$route.params.type;
     // 页面加载时根据文章id获取文章详情
     this.getArticleDetail(id, type);
   },
@@ -69,11 +69,11 @@ export default {
     // 获取文章详情
     // 从头部来时，id表示菜单id
     // 从文章进来时 id表示文章id
-    async getArticleDetail(id, type) {
-      let param = {};
+    async getArticleDetail (id, type) {
+      const param = {};
       if (type === '0') {
-        let res = await HomeApi.getArticleList({ navMenuId: id });
-        let articleList = res.data;
+        const res = await HomeApi.getArticleList({ navMenuId: id });
+        const articleList = res.data;
         if (articleList.length === 0) {
           this.$Message['success']({
             background: true,
@@ -84,7 +84,7 @@ export default {
       } else {
         param.id = id;
       }
-      let result = await HomeApi.getArticleById(param);
+      const result = await HomeApi.getArticleById(param);
       this.article.id = result.data.id;
       this.article.title = result.data.title;
       this.article.content = result.data.content;

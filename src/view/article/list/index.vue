@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     async getMemuList () {
-      let res = await homeApi.getMemu();
+      const res = await homeApi.getMemu();
       this.memuList = res.data;
     }
   }

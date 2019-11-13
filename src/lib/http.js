@@ -2,7 +2,7 @@ import Axios from 'axios';
 import { Message } from 'view-design';
 // import config from '../../config/index.js';
 const baseUrl = 'http://39.105.41.187:8080';
-let axios = Axios.create({
+const axios = Axios.create({
   baseURL: baseUrl,
   timeout: 30000,
   headers: {
@@ -26,7 +26,7 @@ axios
   .interceptors
   .response
   .use((res) => {
-    let { data } = res;
+    const { data } = res;
     if (data.code !== '0') {
       Message['error']({
         background: true,

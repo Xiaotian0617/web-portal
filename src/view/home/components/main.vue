@@ -106,7 +106,7 @@ export default {
     };
   },
   watch: {
-    leftClassify: function(newValue, oldValue) {
+    leftClassify: function (newValue, oldValue) {
       for (const index in this.leftClassify) {
         this.getAirtcleList(index);
       }
@@ -114,12 +114,12 @@ export default {
   },
   methods: {
     // 左侧文章分类选择标签点击事件
-    changeTabs(index) {
+    changeTabs (index) {
       this.tabIndex = index;
       // this.getAirtcleList(index);
     },
-    async getAirtcleList(index) {
-      let res = await homeApi.getArticleList({navMenuId: this.leftClassify[index].id});
+    async getAirtcleList (index) {
+      const res = await homeApi.getArticleList({ navMenuId: this.leftClassify[index].id });
       this.leftClassify[index].list = res.data;
     }
   }

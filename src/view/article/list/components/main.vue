@@ -59,7 +59,7 @@
 import HomeApi from '@/api/home.js';
 export default {
   name: 'MyMain',
-  data() {
+  data () {
     return {
       // 右侧文章列表
       articleList: [],
@@ -72,17 +72,17 @@ export default {
       rightLable: '全部文章'
     };
   },
-  mounted() {
-    let index = this.$route.params.index;
-    let type = this.$route.params.type;
+  mounted () {
+    const index = this.$route.params.index;
+    const type = this.$route.params.type;
     // 页面加载时根据文章id获取文章详情
     this.initArticleList(index, type);
   },
   methods: {
     // 在头部菜单时 index 代表位于菜单的第几个
     // 在左侧分类点击时，index 代表菜单id
-    async initArticleList(index, type, clickIndex = 0) {
-      let classifyStr = this.$cookie.get('memu');
+    async initArticleList (index, type, clickIndex = 0) {
+      const classifyStr = this.$cookie.get('memu');
       if (!classifyStr) {
         this.$Message['error']({
           background: true,
@@ -90,10 +90,10 @@ export default {
         });
         return;
       }
-      let param = {};
+      const param = {};
       if (type === '0') {
         // 从头部菜单来的
-        let classify = JSON.parse(classifyStr);
+        const classify = JSON.parse(classifyStr);
         if (!classify[index]) {
           this.$Message['error']({
             background: true,
@@ -109,7 +109,7 @@ export default {
         this.rightLable = this.articleClassify[clickIndex].nmName;
         param.navMenuId = index;
       }
-      let res = await HomeApi.getArticleList(param);
+      const res = await HomeApi.getArticleList(param);
       this.articleList = res.data;
       if (this.articleList.length === 0) {
         this.$Message['success']({

@@ -52,7 +52,7 @@ export default {
     async getMemuList () {
       const res = await homeApi.getMemu();
       this.memuList = res.data;
-      this.$cookie.set('memu', JSON.stringify(res.data), 1);
+      localStorage.setItem('memu', JSON.stringify(res.data));
     },
     // 获取首页信息
     async initData () {

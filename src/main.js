@@ -7,6 +7,8 @@ import router from './router';
 import ViewUI from 'view-design';
 // 配置cookie
 import cookie from 'vue-cookie';
+// 引入store
+import store from './store';
 // 全局修改iview的默认颜色
 import './assets/css/my-theme.less';
 Vue.prototype.$cookie = cookie;
@@ -28,6 +30,7 @@ router.beforeEach((to, from, next) => {
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 });

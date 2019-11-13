@@ -2,8 +2,8 @@
   <div class="outer_content">
     <ul style="display:block;">
       <li class="article_list" v-for="(item, index) in articleList" :key="index">
-        <a :href="item.href" class="article_title">{{item.title}}</a>
-        <span class="article_summary">{{item.summary}}</span>
+        <a :href="'/detail/'+item.id+'/1'" class="article_title">{{item.title}}</a>
+        <!-- <span class="article_summary" v-html="item.content">{{item.content}}</span> -->
       </li>
     </ul>
   </div>

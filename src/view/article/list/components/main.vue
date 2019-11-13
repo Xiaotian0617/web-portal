@@ -82,8 +82,8 @@ export default {
     // 在头部菜单时 index 代表位于菜单的第几个
     // 在左侧分类点击时，index 代表菜单id
     async initArticleList (index, type, clickIndex = 0) {
-      const classifyStr = this.$cookie.get('memu');
-      if (!classifyStr) {
+      const classifyStr = localStorage.getItem('memu');
+      if (classifyStr === 'null' || !classifyStr) {
         this.$Message['error']({
           background: true,
           content: '无效的菜单，请重试'
@@ -92,8 +92,8 @@ export default {
       }
       const param = {};
       if (type === '0') {
-        // 从头部菜单来的
         const classify = JSON.parse(classifyStr);
+        // 从头部菜单来的
         if (!classify[index]) {
           this.$Message['error']({
             background: true,

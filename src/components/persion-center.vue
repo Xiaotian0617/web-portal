@@ -13,13 +13,31 @@
         <li>绑定的银行名: &nbsp;&nbsp;{{user.bankType}}</li>
         <li>具体的支行信息: &nbsp;&nbsp;{{user.bank}}</li> -->
       </ul>
+      <div class="edit-info">
+        <p class="edit-button cur" @click="showModel = true">修改信息</p>
+      </div>
     </Card>
+    <Modal
+      v-model="showModel"
+      title="修改信息"
+      @on-ok="doEdit"
+      @on-cancel="showModel = false"
+      :styles="{top: '20px'}"
+    >
+      <my-form ref="myForm" :isEdit="true"/>
+    </Modal>
   </div>
 </template>
 <script>
+import LoginApi from '@/api/login';
+import MyForm from './register';
 export default {
+  components: {
+    MyForm
+  },
   data () {
     return {
+      showModel: false,
       user: {
         account: '',
         password: ''
@@ -31,14 +49,24 @@ export default {
   },
   methods: {
     initUser () {
-      const userStr = this.$cookie.get('user');
+      const userStr = localStorage.getItem('user');
       if (userStr && userStr !== 'null') {
         this.user = JSON.parse(userStr);
       }
     },
     logout () {
-      this.$cookie.delete('user');
+      localStorage.setItem('user', null);
       this.$router.go(0);
+    },
+    async doEdit () {
+      const formData = this.$refs.myForm.getData();
+      await LoginApi.doUpdate(formData);
+      this.$Message['success']({
+        background: true,
+        content: '注册成功'
+      });
+      this.showModel = false;
+      this.logout();
     }
   }
 };
@@ -56,6 +84,15 @@ export default {
   line-height: 20px;
 }
 .ivu-modal-header-inner {
+  color: #ed6639;
+}
+.edit-info{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.edit-button{
+  position: absolute;
+  right: 20px;
   color: #ed6639;
 }
 </style>

@@ -12,10 +12,10 @@
           <li class="nv_list" v-for="(item, index) in memuList" :key="index">
             <a :href="getHeaderHref(item,index)" class="nav_item">{{item.nmName}}</a>
           </li>
-          <li class="nv_list" v-if="checkLogin">
+          <li class="nv_list" v-if="!checkLogin">
             <a @click="showModel = true" class="nav_item">登录/注册</a>
           </li>
-          <li class="nv_list person-li" v-if="!checkLogin">
+          <li class="nv_list person-li" v-if="checkLogin">
             <a class="nav_item">个人中心</a>
             <person-center ref="personCenter" class="persion-card" />
           </li>
@@ -85,8 +85,8 @@ export default {
   },
   computed: {
     checkLogin: function () {
-      const userStr = this.$cookie.get('user');
-      if (userStr && userStr !== 'null') {
+      const userStr = localStorage.getItem('user');
+      if (userStr === 'null' || !userStr) {
         return false;
       }
       return true;
@@ -117,7 +117,7 @@ export default {
           content: '登录成功'
         });
         this.showModel = false;
-        this.$cookie.set('user', JSON.stringify(result.data), 1);
+        localStorage.setItem('user', JSON.stringify(result.data));
       } else {
         result = await loginApi.doRegister(formData);
         this.$Message['success']({
